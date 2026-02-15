@@ -6,16 +6,16 @@ import { SERVICES } from '../constants';
 const Services: React.FC = () => {
   return (
     <section className="relative bg-[#e5e5e5] py-40 px-8 lg:px-24 overflow-hidden border-t border-black/5">
-      {/* Decorative Squiggle Line across grid */}
-      <svg className="absolute top-1/2 left-0 w-full h-full pointer-events-none z-0 opacity-80" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      {/* Refined Decorative Arc */}
+      <svg className="absolute bottom-0 right-[-10%] w-[120%] h-[80%] pointer-events-none z-0 opacity-40" viewBox="0 0 1000 1000" preserveAspectRatio="none">
         <motion.path
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          d="M0,500 C200,300 400,700 600,500 C800,300 1000,500 1200,700"
+          d="M0,400 C300,200 700,600 1000,300"
           stroke="#d9ff3f"
-          strokeWidth="30"
+          strokeWidth="12"
           fill="none"
           strokeLinecap="round"
         />

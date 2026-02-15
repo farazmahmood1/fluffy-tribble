@@ -5,16 +5,16 @@ import { motion } from 'framer-motion';
 const Values: React.FC = () => {
   return (
     <section className="relative bg-[#e5e5e5] py-40 px-8 lg:px-24 overflow-hidden">
-      {/* Decorative Squiggle Line */}
-      <svg className="absolute top-0 right-0 w-full h-full pointer-events-none z-0 opacity-80" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      {/* Refined Decorative Arc */}
+      <svg className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] pointer-events-none z-0 opacity-60" viewBox="0 0 1000 1000" preserveAspectRatio="none">
         <motion.path
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          d="M1000,0 C800,200 600,600 400,400 C200,200 100,800 0,600"
+          d="M0,800 C300,700 700,900 1000,500"
           stroke="#d9ff3f"
-          strokeWidth="40"
+          strokeWidth="15"
           fill="none"
           strokeLinecap="round"
         />

@@ -25,14 +25,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Side Decoration Right */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center z-20">
-        <div className="bg-white px-3 py-10 flex flex-col items-center rounded-l-xl border border-black/5 shadow-sm">
-          <span className="text-[10px] uppercase tracking-[0.3em] font-bold rotate-90 whitespace-nowrap mb-12">W.</span>
-          <span className="text-[8px] uppercase tracking-[0.5em] font-bold rotate-90 whitespace-nowrap mb-10">Honors</span>
-        </div>
-      </div>
-
       {/* Iridescent Blob Container */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] pointer-events-none">
         <div className="relative aspect-square blob-float">

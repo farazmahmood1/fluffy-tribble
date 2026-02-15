@@ -79,14 +79,6 @@ const Projects: React.FC = () => {
           </Magnetic>
         </div>
       </div>
-
-      {/* Side Decoration Detail */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-20 pointer-events-none">
-        <div className="bg-white/20 backdrop-blur-md px-3 py-10 flex flex-col items-center rounded-l-xl border border-black/5 shadow-sm">
-          <span className="text-[10px] uppercase tracking-[0.3em] font-bold rotate-90 whitespace-nowrap mb-12">W.</span>
-          <span className="text-[8px] uppercase tracking-[0.5em] font-bold rotate-90 whitespace-nowrap">Honors</span>
-        </div>
-      </div>
     </section>
   );
 };
