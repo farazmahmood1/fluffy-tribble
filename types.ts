@@ -11,3 +11,11 @@ export interface SkillCategory {
   title: string;
   items: string[];
 }
+
+export interface Review {
+  name: string;
+  role: string;
+  content: string;
+  platform: string;
+  rating: number;
+}

@@ -1,6 +1,44 @@
 
 import React from 'react';
-import { Experience, SkillCategory } from './types';
+import { Experience, SkillCategory, Review } from './types';
+
+export const REVIEWS: Review[] = [
+  {
+    name: "Jonathan Reeves",
+    role: "CEO, HomeScan USA",
+    content: "Faysal transformed our lead generation engine. Our CPL dropped by 35% within the first month while the lead quality reached an all-time high. His understanding of performance architectures is unparalleled.",
+    platform: "LinkedIn",
+    rating: 5
+  },
+  {
+    name: "Sarah Jenkins",
+    role: "Growth Lead, AquaFlow DTC",
+    content: "Scalability was our biggest bottleneck. With Faysal's custom Google Ads architectures, we've 3x'd our monthly ad spend while actually increasing our ROAS. A true data-driven specialist.",
+    platform: "Upwork",
+    rating: 5
+  },
+  {
+    name: "Mark Thompson",
+    role: "Director of Marketing, ESS",
+    content: "The level of detail in the attribution tracking Faysal built for us is incredible. We finally have a clear picture of our full-funnel performance. He doesn't just run ads; he builds systems.",
+    platform: "LinkedIn",
+    rating: 5
+  },
+  {
+    name: "David Sterling",
+    role: "Founder, Sterling Dental Supplies",
+    content: "Our Amazon PPC ACOS dropped from 45% to 18% under Faysal's management. His strategic approach to keyword research and bid management has been a game-changer for our B2B growth.",
+    platform: "Direct",
+    rating: 5
+  },
+  {
+    name: "Emily Watson",
+    role: "Growth Manager, Nexa Solutions",
+    content: "Faysal's ability to interpret complex data into actionable campaign pivots is incredible. Our conversion rate increased by 22% in the first quarter of working together. Highly recommended.",
+    platform: "Clutch",
+    rating: 5
+  }
+];
 
 export const EXPERIENCES: Experience[] = [
   {

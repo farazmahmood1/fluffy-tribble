@@ -5,7 +5,7 @@ import { SKILLS } from '../constants';
 
 const Skills: React.FC = () => {
   return (
-    <section className="py-40 px-8 lg:px-24 bg-[#e5e5e5]">
+    <section className="pt-20 pb-40 px-8 lg:px-24 bg-[#e5e5e5]">
       <div className="max-w-[1440px] mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
