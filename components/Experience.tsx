@@ -17,7 +17,7 @@ const ExperienceItem: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
       onMouseLeave={() => setIsHovered(false)}
       className="group border-b border-black/5 last:border-0 relative"
     >
-      <div className="py-10 md:py-16 px-2 md:px-0 flex flex-col justify-between cursor-pointer transition-all duration-500">
+      <div className="py-10 md:py-16 px-4 md:px-8 flex flex-col justify-between cursor-pointer transition-all duration-500">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
           <div className="flex-1 w-full">
             <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4">

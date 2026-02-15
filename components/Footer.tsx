@@ -5,10 +5,7 @@ import Magnetic from './Magnetic';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="pt-20 pb-20 px-8 lg:px-24 bg-[#1a1a1a] text-white rounded-t-[60px] relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-white/5 blur-[120px] rounded-full" />
-      
+    <footer className="pt-20 pb-20 px-8 lg:px-24 bg-[#111111] text-white relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto text-center relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 pt-20 border-t border-white/5">
           <div className="text-left">

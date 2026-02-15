@@ -5,7 +5,7 @@ import Magnetic from './Magnetic';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="relative bg-[#111111] pt-40 pb-60 px-8 lg:px-24">
+    <section id="about" className="relative bg-[#111111] pt-40 pb-32 pt-20 px-8 lg:px-24">
       {/* Concave Curved Top Edge Transition */}
       <div className="absolute top-0 left-0 w-full h-32 bg-[#e5e5e5] rounded-b-[100%] z-0" />
       
@@ -15,7 +15,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-16 mt-16"
         >
           <h2 className="text-3xl md:text-5xl font-inter font-normal leading-[1.3] text-white tracking-tight">
             I'm Faysal – a <span className="text-neutral-400">Performance Marketing Specialist</span> crafting high-ROI, scalable, and conversion-driven digital experiences that merge data with creative strategy.
@@ -27,7 +27,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-24"
+          className="mb-12"
         >
           <p className="text-lg md:text-xl text-neutral-400 font-light leading-relaxed max-w-4xl mx-auto">
             I specialize in scaling DTC, B2B, and SaaS brands across US and UK markets using advanced architectures in Google Ads, Meta Ads, and end-to-end conversion tracking via GA4.

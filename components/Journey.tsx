@@ -70,7 +70,6 @@ const Journey: React.FC = () => {
     restDelta: 0.001
   });
 
-  const flowX = useTransform(scrollYProgress, [0.8, 1], ["-100%", "0%"]);
 
   return (
     <section 
@@ -126,13 +125,6 @@ const Journey: React.FC = () => {
         </div>
       </div>
 
-      {/* Fixed Horizontal "Flow" Line at bottom transition */}
-      <motion.div 
-        style={{ x: flowX }}
-        className="absolute bottom-10 md:bottom-20 left-0 w-full h-px z-10"
-      >
-        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#d9ff3f]/40 to-transparent shadow-[0_0_20px_rgba(217,255,63,0.2)]" />
-      </motion.div>
     </section>
   );
 };

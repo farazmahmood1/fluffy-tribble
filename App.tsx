@@ -70,8 +70,8 @@ const App: React.FC = () => {
           <ExperienceSection />
           <Skills />
           <Reviews />
-          <Contact />
           <Ticker />
+          <Contact />
           <Footer />
         </motion.div>
 

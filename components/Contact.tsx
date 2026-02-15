@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-40 px-6 md:px-12 lg:px-24 bg-[#111111] text-white relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-40 px-6 md:px-12 lg:px-24 bg-[#111111] text-white relative overflow-hidden rounded-t-[60px]">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-48 h-48 sm:w-96 sm:h-96 bg-[#d9ff3f]/5 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
 
@@ -62,10 +62,10 @@ const Contact: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-6 pt-6">
                 <Magnetic>
-                  <a href="https://www.linkedin.com/in/faysalmahmood1/" target="_blank" className="text-[10px] font-bold tracking-[0.2em] opacity-40 hover:opacity-100 hover:text-[#d9ff3f] transition-all">LINKEDIN</a>
+                  <a href="https://www.linkedin.com/in/faysalmahmood1/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile" className="text-[10px] font-bold tracking-[0.2em] opacity-40 hover:opacity-100 hover:text-[#d9ff3f] transition-all">LINKEDIN</a>
                 </Magnetic>
                 <Magnetic>
-                  <a href="#" className="text-[10px] font-bold tracking-[0.2em] opacity-40 hover:opacity-100 hover:text-[#d9ff3f] transition-all">UPWORK</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visit Upwork profile" className="text-[10px] font-bold tracking-[0.2em] opacity-40 hover:opacity-100 hover:text-[#d9ff3f] transition-all">UPWORK</a>
                 </Magnetic>
               </div>
             </div>
