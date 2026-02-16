@@ -19,3 +19,18 @@ export interface Review {
   platform: string;
   rating: number;
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  client: string;
+  year: string;
+  duration: string;
+  tools: string[];
+  results: string[];
+  overview: string;
+  gallery: string[];
+}

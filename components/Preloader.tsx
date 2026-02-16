@@ -1,94 +1,103 @@
 
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState, useCallback } from 'react';
+import { motion } from 'framer-motion';
 
 const words = [
   "Hello",
   "Bonjour",
   "Hola",
-  "Ciao",
   "Olá",
   "Namaste",
   "Salam",
-  "Zdravo",
-  "Privet",
   "Bella Ciao"
 ];
 
 const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [index, setIndex] = useState(0);
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
     if (index === words.length - 1) {
-      // Pause on the final word to let it sink in
-      const finalTimeout = setTimeout(() => {
-        onComplete();
-      }, 1200);
+      const finalTimeout = setTimeout(() => setIsDone(true), 800);
       return () => clearTimeout(finalTimeout);
     }
 
     const timeout = setTimeout(() => {
-      setIndex(index + 1);
-    }, index === 0 ? 1200 : 250); // Slower initial word and rhythmic middle transition
+      setIndex((i) => i + 1);
+    }, index === 0 ? 900 : 300);
 
     return () => clearTimeout(timeout);
-  }, [index, onComplete]);
+  }, [index]);
+
+  const handleExitComplete = useCallback(() => {
+    onComplete();
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (isDone) {
+      const t = setTimeout(handleExitComplete, 900);
+      return () => clearTimeout(t);
+    }
+  }, [isDone, handleExitComplete]);
 
   return (
     <motion.div
-      initial={{ y: 0 }}
-      exit={{ 
-        y: "-100%",
-        transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 } 
-      }}
-      className="fixed inset-0 z-[99999] bg-[#111111] flex items-center justify-center overflow-hidden"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.05 }}
+      className="fixed inset-0 z-[99999] overflow-hidden"
     >
-      <div className="relative flex flex-col items-center">
-        {/* Decorative Dot - Pulses with life */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: [0.4, 1, 0.4], 
-            scale: [0.8, 1.2, 0.8] 
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="w-3 h-3 bg-[#d9ff3f] rounded-full mb-10"
-        />
-        
-        <div className="h-24 flex items-center justify-center overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={words[index]}
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: "0%", opacity: 1 }}
-              exit={{ y: "-100%", opacity: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                ease: [0.16, 1, 0.3, 1] // Super smooth deceleration curve
-              }}
-              className="text-4xl md:text-7xl font-syne font-bold text-white tracking-tighter"
-            >
-              {words[index]}
-            </motion.p>
-          </AnimatePresence>
-        </div>
-      </div>
+      {/* Main panel */}
+      <motion.div
+        animate={{ y: isDone ? "-100vh" : "0vh" }}
+        transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
+        className="absolute inset-0 bg-[#111111]"
+      >
+        <div className="w-full h-full flex items-center justify-center">
+          {/* Decorative Dot */}
+          <motion.div
+            animate={isDone
+              ? { opacity: 0 }
+              : { opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }
+            }
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute w-3 h-3 bg-[#d9ff3f] rounded-full"
+            style={{ top: "calc(50% - 70px)" }}
+          />
 
-      {/* SVG Path for a "curved" exit effect */}
-      <svg className="absolute top-0 w-full h-[calc(100%+300px)] pointer-events-none fill-[#111111]">
-        <motion.path
-          initial={{ d: "M0 0 L100 0 L100 100 Q50 100 0 100 Z" }}
-          exit={{ 
-            d: "M0 0 L100 0 L100 100 Q50 0 0 100 Z",
-            transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
-          }}
-          className="w-full h-full"
-        />
-      </svg>
+          {/* Word display — no AnimatePresence, just swap with CSS */}
+          <div className="h-24 w-full flex items-center justify-center overflow-hidden relative">
+            {words.map((word, i) => (
+              <span
+                key={word}
+                className="absolute text-4xl md:text-7xl font-syne font-bold text-white tracking-tighter transition-all duration-300 ease-out"
+                style={{
+                  opacity: i === index && !isDone ? 1 : 0,
+                  transform: i === index && !isDone
+                    ? "translateY(0px)"
+                    : i < index || isDone
+                      ? "translateY(-30px)"
+                      : "translateY(30px)",
+                }}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Curved bottom edge */}
+      <motion.div
+        animate={{ y: isDone ? "-100vh" : "0vh" }}
+        transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
+        className="absolute left-0 w-full pointer-events-none"
+        style={{ top: "100%", height: "150px" }}
+      >
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" className="w-full h-full">
+          <path d="M0,0 L0,0 Q720,150 1440,0 L1440,0 Z" fill="#111111" />
+        </svg>
+      </motion.div>
     </motion.div>
   );
 };
